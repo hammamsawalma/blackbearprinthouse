@@ -1,24 +1,19 @@
 version: 1
 
-applications:
-  - appRoot: app-src
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - npm ci
-            - npx prisma generate
-        build:
-          commands:
-            - npm run build
-      artifacts:
-        baseDirectory: .next
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - 'node_modules/**/*'
-          - '.next/cache/**/*'
-
-    buildSizeConfig:
-      maxArtifactSize: 250MB
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - npx prisma generate
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - 'node_modules/**/*'
+      - '.next/cache/**/*'
