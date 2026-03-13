@@ -1,16 +1,14 @@
 .heroWrapper {
   width: 100%;
-  min-height: 85vh; /* Take up most of the screen */
+  min-height: 85vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* Very dark background for high contrast */
   background: radial-gradient(circle at center, #1a1510 0%, #050505 100%);
   padding: var(--space-2xl) 0;
-  margin-top: -80px; /* Pull up to sit behind the transparent header if applicable */
-  padding-top: max(120px, var(--space-3xl)); /* Ensure content clears header */
+  padding-top: 100px; /* Clear the transparent sticky header */
 }
 
 /* Background Effects */
