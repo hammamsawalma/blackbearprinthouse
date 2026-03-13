@@ -1,0 +1,316 @@
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: var(--font-inter);
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.sidebarHeader {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-lg);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logoText {
+  font-family: var(--font-playfair);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-wide);
+}
+
+.logoAccent {
+  color: var(--color-copper);
+}
+
+.nav {
+  flex: 1;
+  padding: var(--space-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
+  color: rgba(255,255,255,0.7);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.navItem:hover {
+  background-color: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.navItemActive {
+  background-color: rgba(200,149,108,0.15);
+  color: var(--color-copper) !important;
+  border-left: 3px solid var(--color-copper);
+}
+
+.main {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 70px;
+  background-color: white;
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-2xl);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.topbarTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+}
+
+.topbarActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.content {
+  padding: var(--space-2xl);
+  flex: 1;
+}
+
+/* ─── Dashboard Stats ─── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.statCard {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(200,149,108,0.1);
+  color: var(--color-copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statInfo h4 {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.statInfo .statValue {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+}
+
+/* ─── Data Tables ─── */
+.tableCard {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+}
+
+.tableHeader {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tableTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border-light);
+  background: #fcfcfc;
+}
+
+.table td {
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badgePending { background: #fff3cd; color: #856404; }
+.badgeProcessing { background: #cce5ff; color: #004085; }
+.badgeCompleted { background: #d4edda; color: #155724; }
+
+/* ─── Login Screen ─── */
+.loginWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  padding: var(--space-xl);
+  font-family: var(--font-inter);
+}
+
+.loginCard {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  border: 1px solid var(--color-border-light);
+}
+
+.loginHeader {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.loginLogo {
+  font-family: var(--font-playfair);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-sm);
+}
+
+.loginSub {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.inputGroup label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-text-muted);
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  outline: none;
+  font-size: var(--text-base);
+  transition: border-color var(--transition-base);
+}
+
+.inputWrapper input:focus {
+  border-color: var(--color-copper);
+}
+
+.loginBtn {
+  margin-top: var(--space-sm);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+.loginBtn:hover:not(:disabled) {
+  background-color: #222;
+}
+
+.loginBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

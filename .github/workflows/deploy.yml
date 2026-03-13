@@ -1,0 +1,106 @@
+name: CI/CD — BlackBearPrintHouse
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_VERSION: '22'
+
+jobs:
+  # ─── Job 1: Lint & Type-Check ───
+  lint-typecheck:
+    name: 🔍 Lint & Type-Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-src
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: app-src/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: TypeScript type-check
+        run: npx tsc --noEmit
+
+      - name: ESLint
+        run: npm run lint
+
+  # ─── Job 2: Build & Test ───
+  build-test:
+    name: 🏗️ Build & Test
+    needs: lint-typecheck
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-src
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: app-src/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Build production bundle
+        run: npm run build
+        env:
+          DATABASE_URL: 'file:./dev.db'
+          AUTH_SECRET: 'ci-build-secret-not-for-prod'
+
+      - name: Verify standalone output exists
+        run: |
+          if [ -d ".next/standalone" ]; then
+            echo "✅ Standalone build successful"
+            du -sh .next/standalone
+          else
+            echo "❌ Standalone output missing!"
+            exit 1
+          fi
+
+  # ─── Job 3: Notify Deployment ───
+  deploy-notify:
+    name: 🚀 Deploy Notification
+    needs: build-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Deployment triggered
+        run: |
+          echo "============================================"
+          echo "✅ CI passed — AWS Amplify auto-deploy triggered"
+          echo "============================================"
+          echo ""
+          echo "AWS Amplify monitors the 'main' branch and"
+          echo "will automatically build & deploy the app."
+          echo ""
+          echo "📦 Commit: ${{ github.sha }}"
+          echo "👤 Author: ${{ github.actor }}"
+          echo "📝 Message: ${{ github.event.head_commit.message }}"
+          echo "============================================"

@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  company   String?
+  orders    Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id               String      @id @default(cuid())
+  nameAr           String
+  nameEn           String
+  descriptionAr    String
+  descriptionEn    String
+  price            Float
+  category         String
+  isCustomizable   Boolean     @default(false)
+  hasSizeOptions   Boolean     @default(false)
+  image            String?
+  orderItems       OrderItem[]
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique
+  customerId      String?
+  customer        Customer?   @relation(fields: [customerId], references: [id])
+  
+  // Contact details for the order if no customer account
+  contactName     String
+  contactEmail    String
+  contactPhone    String
+  
+  status          String      @default("PENDING") // PENDING, PROCESSING, COMPLETED, CANCELLED
+  
+  // Financials
+  subtotal        Float
+  vatAmount       Float
+  totalAmount     Float
+  
+  // Delivery & Payment
+  deliveryAddress String
+  paymentMethod   String      @default("NOQOODY") // NOQOODY, COD, BANK_TRANSFER
+  paymentStatus   String      @default("PENDING") // PENDING, PAID, FAILED
+  
+  items           OrderItem[]
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model OrderItem {
+  id             String   @id @default(cuid())
+  orderId        String
+  order          Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  productId      String
+  product        Product  @relation(fields: [productId], references: [id])
+  
+  quantity       Int
+  unitPrice      Float
+  subtotal       Float
+  
+  specifications String?  // JSON string containing selected size, paper type, etc.
+}
+
+model QuoteRequest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String
+  company     String?
+  
+  serviceType String
+  description String
+  quantity    String?
+  
+  status      String   @default("PENDING") // PENDING, REVIEWED, QUOTED, REJECTED
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

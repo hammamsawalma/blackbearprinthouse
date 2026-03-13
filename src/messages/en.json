@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "title": "BlackBear Print House | Doha, Qatar",
+    "description": "Professional printing services in Doha, Qatar — Offset, Digital, Packaging, Design and more"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "shop": "Shop",
+    "quote": "Get a Quote",
+    "contact": "Contact Us",
+    "track": "Track Order"
+  },
+  "hero": {
+    "label": "BlackBear Print House",
+    "title_1": "We Print Your Ideas",
+    "title_2": "With Exceptional Quality",
+    "description": "Professional printing services in Doha, Qatar — Offset, Digital, Packaging, Design and more",
+    "cta_quote": "Get a Quote",
+    "cta_services": "Browse Services"
+  },
+  "services_section": {
+    "label": "Our Services",
+    "title": "Complete Printing Solutions",
+    "description": "We offer a full range of printing and design services to meet all your needs"
+  },
+  "why_us": {
+    "label": "Why BlackBear?",
+    "title": "Your Ideal Printing Partner",
+    "quality": "High Quality",
+    "quality_desc": "We use the latest technology and finest materials to ensure stunning results",
+    "speed": "Fast Execution",
+    "speed_desc": "We commit to deadlines and deliver your orders on time",
+    "technology": "Modern Technology",
+    "technology_desc": "Advanced printing equipment for the best possible quality",
+    "experience": "Extensive Experience",
+    "experience_desc": "An experienced team providing creative solutions for every project"
+  },
+  "stats": {
+    "years": "Years of Experience",
+    "projects": "Projects Completed",
+    "clients": "Happy Clients",
+    "products": "Products Available"
+  },
+  "featured_work": {
+    "label": "Our Work",
+    "title": "Projects We're Proud Of",
+    "view_all": "View All Work"
+  },
+  "clients": {
+    "title": "Our Clients"
+  },
+  "cta": {
+    "title": "Ready to Start Your Project?",
+    "description": "Contact us today and get a free quote",
+    "button": "Get a Quote Now"
+  },
+  "footer": {
+    "description": "BlackBear Print House — Your ideal partner in professional printing in Doha, Qatar",
+    "quick_links": "Quick Links",
+    "our_services": "Our Services",
+    "contact_info": "Contact Us",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "address_value": "Doha, Qatar",
+    "work_hours": "Working Hours",
+    "work_hours_value": "Sunday - Thursday: 8:00 AM - 5:00 PM",
+    "rights": "All Rights Reserved",
+    "follow_us": "Follow Us"
+  },
+  "contact_page": {
+    "label": "Contact Us",
+    "title": "We're Here to Help",
+    "description": "Send us a message and we'll get back to you soon",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Your message has been sent successfully! We'll contact you soon"
+  },
+  "quote_page": {
+    "label": "Get a Quote",
+    "title": "Get a Custom Quote",
+    "description": "Tell us about your project and we'll provide you the best offer",
+    "step_service": "Service Type",
+    "step_details": "Details",
+    "step_contact": "Contact Info",
+    "service_type": "Select Service Type",
+    "quantity": "Quantity",
+    "size": "Size",
+    "paper_type": "Paper Type",
+    "finishing": "Finishing",
+    "upload": "Upload Design File",
+    "notes": "Additional Notes",
+    "submit": "Submit Request",
+    "next": "Next",
+    "prev": "Previous",
+    "success": "Your request has been sent successfully! We'll contact you within 24 hours"
+  },
+  "about_page": {
+    "label": "About Us",
+    "title": "The BlackBear Story",
+    "description": "BlackBear Print House is a sub-brand of the BlackBear family, offering professional printing services in Doha, Qatar",
+    "mission_title": "Our Mission",
+    "mission": "To deliver the highest quality standards in printing and packaging services with commitment to deadlines and competitive pricing",
+    "vision_title": "Our Vision",
+    "vision": "To be the first and best choice in printing and packaging in the State of Qatar"
+  },
+  "portfolio_page": {
+    "label": "Our Work",
+    "title": "Projects We're Proud Of",
+    "description": "A showcase of our outstanding work for clients across Qatar"
+  },
+  "shop_page": {
+    "label": "Shop",
+    "title": "Print Shop",
+    "description": "Order ready-made printing products online at competitive prices"
+  },
+  "common": {
+    "learn_more": "Learn More",
+    "view_details": "View Details",
+    "back": "Back",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "open_menu": "Open Menu",
+    "close_menu": "Close Menu",
+    "switch_language": "العربية"
+  }
+}

@@ -1,0 +1,213 @@
+.footer {
+  background: var(--color-bg-darker);
+  color: var(--color-text-on-dark);
+  padding-top: var(--space-5xl);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 149, 108, 0.4), transparent);
+}
+
+.footerInner {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Brand Column ─── */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+}
+
+.footerLogoIcon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--color-copper), var(--color-gold));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+
+.footerLogoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLogoTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+}
+
+.footerLogoSub {
+  font-size: var(--text-xs);
+  color: var(--color-copper);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+}
+
+.footerDesc {
+  font-size: var(--text-sm);
+  color: var(--color-text-on-dark-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 300px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-on-dark-muted);
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: var(--color-copper);
+  border-color: var(--color-copper);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* ─── Columns ─── */
+.footerColTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+.footerColTitle::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--color-copper);
+  margin-top: var(--space-sm);
+  border-radius: var(--radius-full);
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footerLink {
+  font-size: var(--text-sm);
+  color: var(--color-text-on-dark-muted);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.footerLink:hover {
+  color: var(--color-copper);
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .footerLink:hover {
+  transform: translateX(-4px);
+}
+
+/* ─── Contact Info ─── */
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.contactIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-copper);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.contactLabel {
+  font-size: var(--text-xs);
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: 2px;
+}
+
+.contactValue {
+  font-size: var(--text-sm);
+  color: var(--color-text-on-dark);
+}
+
+/* ─── Bottom Bar ─── */
+.bottomBar {
+  padding: var(--space-lg) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--color-text-on-dark-muted);
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+}
