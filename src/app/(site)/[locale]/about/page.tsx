@@ -43,7 +43,7 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.storyGrid}>
             <motion.div className={styles.storyImage} initial={{ opacity: 0, x: isAr ? 40 : -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ position: 'relative', overflow: 'hidden' }}>
-              <Image src="/assets/about_story_img.png" alt="BlackBear Workspace" fill sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" style={{ objectFit: 'cover' }} />
+              <Image src="/assets/about_story_img.webp" alt="BlackBear Workspace" fill sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" style={{ objectFit: 'cover' }} />
             </motion.div>
             <motion.div className={styles.storyContent} initial={{ opacity: 0, x: isAr ? -40 : 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h3>{isAr ? 'من هي مطبعة بلاك بير؟' : 'Who is BlackBear Print House?'}</h3>

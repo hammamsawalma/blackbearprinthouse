@@ -17,6 +17,7 @@ import {
   Users,
 } from 'lucide-react';
 import styles from './page.module.css';
+import EidOffersBanner from '@/components/EidOffersBanner';
 
 /* ─── Animation Variants ─── */
 const fadeUp = {
@@ -88,7 +89,7 @@ export default function HomePage() {
             style={{ position: 'relative', height: '500px', width: '100%' }}
           >
             <Image 
-              src="/assets/home_hero_visual.png" 
+              src="/assets/home_hero_visual.webp" 
               alt="BlackBear Print House - High Quality Printing" 
               fill 
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -98,6 +99,9 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* ─── Eid Offers Banner ─── */}
+      <EidOffersBanner />
 
       {/* ─── Services Overview ─── */}
       <section className={styles.servicesSection}>
@@ -203,7 +207,7 @@ export default function HomePage() {
           style={{ position: 'relative', overflow: 'hidden' }}
         >
           <Image 
-            src="/assets/home_cta_bg.png" 
+            src="/assets/home_cta_bg.webp" 
             alt="Design Grid Background" 
             fill 
             sizes="100vw"

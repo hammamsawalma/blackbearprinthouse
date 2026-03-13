@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:eid": "npx playwright test --config=playwright.config.ts",
+    "test:eid:api": "npx playwright test __tests__/api/ --config=playwright.config.ts"
   },
   "dependencies": {
     "@next/font": "^14.2.15",

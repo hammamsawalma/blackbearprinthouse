@@ -39,6 +39,12 @@ model Product {
   isCustomizable   Boolean     @default(false)
   hasSizeOptions   Boolean     @default(false)
   image            String?
+  
+  // Eid Offers
+  isEidOffer       Boolean     @default(false)
+  offerPrice       Float?
+  offerImage       String?
+
   orderItems       OrderItem[]
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt

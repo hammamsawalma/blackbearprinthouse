@@ -36,7 +36,7 @@ export default function ServicesPage() {
     <div className={styles.page}>
       {/* Hero */}
       <section className={styles.pageHero} style={{ position: 'relative' }}>
-        <Image src="/assets/services_hero_bg.png" alt="Services Background" fill sizes="100vw" style={{ objectFit: 'cover', opacity: 0.4, zIndex: 0 }} priority />
+        <Image src="/assets/services_hero_bg.webp" alt="Services Background" fill sizes="100vw" style={{ objectFit: 'cover', opacity: 0.4, zIndex: 0 }} priority />
         <motion.div className={styles.pageHeroContent} initial="hidden" animate="visible" variants={stagger} style={{ position: 'relative', zIndex: 1 }}>
           <motion.span className={styles.pageHeroLabel} variants={fadeUp}>{t('services_section.label')}</motion.span>
           <motion.h1 className={styles.pageHeroTitle} variants={fadeUp}>{t('services_section.title')}</motion.h1>

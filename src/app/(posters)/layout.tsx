@@ -49,21 +49,17 @@ export default function PostersLayout({
           backgroundColor: "#000",
           color: "#fff",
           overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "100vh",
+          width: "100vw",
+          height: "100vh",
         }}
       >
         <main
           style={{
             position: "relative",
-            width: "1080px",
-            height: "1080px",
-            flexShrink: 0,
+            width: "100%",
+            height: "100%",
             backgroundColor: "#0A0A0B",
             overflow: "hidden",
-            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
           }}
         >
           {children}

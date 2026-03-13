@@ -52,7 +52,7 @@ export default function ShopPage() {
           <motion.p className={pageStyles.pageHeroDesc} variants={fadeUp} style={{ marginInline: 0 }}>{t('shop_page.description')}</motion.p>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: locale === 'ar' ? -40 : 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} style={{ position: 'relative', height: '400px', width: '100%', borderRadius: 'var(--radius-xl)', overflow: 'hidden' }}>
-          <Image src="/assets/shop_hero_visual.png" alt="Shop High Quality Prints" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} priority />
+          <Image src="/assets/shop_hero_visual.webp" alt="Shop High Quality Prints" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} priority />
         </motion.div>
       </section>
 

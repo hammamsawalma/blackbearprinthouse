@@ -120,6 +120,12 @@
     "title": "Print Shop",
     "description": "Order ready-made printing products online at competitive prices"
   },
+  "eid_offers": {
+    "badge": "Eid Offers",
+    "title": "Exclusive Eid Deals",
+    "shop_now": "Shop Now",
+    "currency": "QAR"
+  },
   "common": {
     "learn_more": "Learn More",
     "view_details": "View Details",
