@@ -20,7 +20,7 @@ const ALLOWED_MIME_TYPES = [
 ];
 
 const S3_BUCKET = process.env.S3_UPLOAD_BUCKET || 'blackbear-printhouse-uploads';
-const S3_REGION = process.env.AWS_REGION || 'me-south-1';
+const S3_REGION = process.env.S3_REGION || 'me-south-1';
 
 const s3 = new S3Client({ region: S3_REGION });
 
