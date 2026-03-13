@@ -43,25 +43,22 @@ test.describe('Integration: Eid Offers i18n & Schema', () => {
     expect(enJson.eid_offers.currency).toBe('QAR');
   });
 
-  // ─── I3: Banner is positioned between Hero and Services in page.tsx ───
-  test('I3: EidOffersBanner should be between Hero and Services sections in page.tsx', async () => {
+  // ─── I3: EidOffersHero is placed at the top of page.tsx ───
+  test('I3: EidOffersHero should be present in page.tsx', async () => {
     const pageContent = fs.readFileSync(PAGE_PATH, 'utf-8');
 
     // Check import exists
-    expect(pageContent).toContain("import EidOffersBanner from '@/components/EidOffersBanner'");
+    expect(pageContent).toContain("import EidOffersHero from '@/components/EidOffersHero'");
 
     // Check component is rendered as JSX
-    expect(pageContent).toContain('<EidOffersBanner');
+    expect(pageContent).toContain('<EidOffersHero');
 
-    // Check ordering: Hero section comment → <EidOffersBanner JSX → Services section comment
-    const heroIndex = pageContent.indexOf('Hero Section');
-    const bannerIndex = pageContent.indexOf('<EidOffersBanner');
+    // Check ordering: <EidOffersHero JSX → Services section comment
+    const bannerIndex = pageContent.indexOf('<EidOffersHero');
     const servicesIndex = pageContent.indexOf('Services Overview');
 
-    expect(heroIndex).toBeGreaterThan(-1);
     expect(bannerIndex).toBeGreaterThan(-1);
     expect(servicesIndex).toBeGreaterThan(-1);
-    expect(heroIndex).toBeLessThan(bannerIndex);
     expect(bannerIndex).toBeLessThan(servicesIndex);
   });
 

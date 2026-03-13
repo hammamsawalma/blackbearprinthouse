@@ -17,7 +17,7 @@ import {
   Users,
 } from 'lucide-react';
 import styles from './page.module.css';
-import EidOffersBanner from '@/components/EidOffersBanner';
+import EidOffersHero from '@/components/EidOffersHero';
 
 /* ─── Animation Variants ─── */
 const fadeUp = {
@@ -51,57 +51,8 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ─── Hero Section ─── */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-2xl)', alignItems: 'center', position: 'relative', zIndex: 2, paddingTop: '100px', width: '100%' }}>
-          <motion.div
-            className={styles.heroContent}
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            style={{ textAlign: locale === 'ar' ? 'right' : 'left', padding: 0 }}
-          >
-            <motion.span className={styles.heroLabel} variants={fadeUp}>
-              {t('hero.label')}
-            </motion.span>
-            <motion.h1 className={styles.heroTitle} variants={fadeUp}>
-              {t('hero.title_1')}
-              <span className={styles.heroTitleAccent}>{t('hero.title_2')}</span>
-            </motion.h1>
-            <motion.p className={styles.heroDesc} variants={fadeUp} style={{ marginInline: 0 }}>
-              {t('hero.description')}
-            </motion.p>
-            <motion.div className={styles.heroActions} variants={fadeUp} style={{ justifyContent: 'flex-start' }}>
-              <Link href="/quote" className="btn btn--accent btn--lg">
-                {t('hero.cta_quote')}
-              </Link>
-              <Link href="/services" className="btn btn--outline-light btn--lg">
-                {t('hero.cta_services')}
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: locale === 'ar' ? -40 : 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ position: 'relative', height: '500px', width: '100%' }}
-          >
-            <Image 
-              src="/assets/home_hero_visual.webp" 
-              alt="BlackBear Print House - High Quality Printing" 
-              fill 
-              sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'contain', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.5))' }} 
-              priority 
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── Eid Offers Banner ─── */}
-      <EidOffersBanner />
+      {/* ─── Hero Section with Eid Offers ─── */}
+      <EidOffersHero />
 
       {/* ─── Services Overview ─── */}
       <section className={styles.servicesSection}>

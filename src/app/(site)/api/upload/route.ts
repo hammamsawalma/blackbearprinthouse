@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { uploadLimiter, getClientIp } from '@/lib/rate-limit';
 
 // Configuration for file upload
@@ -20,6 +19,11 @@ const ALLOWED_MIME_TYPES = [
   'application/octet-stream',       // fallback for design files
 ];
 
+const S3_BUCKET = process.env.S3_UPLOAD_BUCKET || 'blackbear-printhouse-uploads';
+const S3_REGION = process.env.AWS_REGION || 'me-south-1';
+
+const s3 = new S3Client({ region: S3_REGION });
+
 export async function POST(req: NextRequest) {
   // ── Rate Limiting ──
   const ip = getClientIp(req);
@@ -34,7 +38,6 @@ export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
     const file = formData.get('file') as File | null;
-    const orderId = formData.get('orderId') as string | null;
 
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
@@ -66,23 +69,26 @@ export async function POST(req: NextRequest) {
       .replace(/\.\./g, '')                    // prevent directory traversal
       .replace(/[^a-zA-Z0-9._-]/g, '_')       // sanitize special chars
       .slice(0, 100);                          // limit filename length
-    const filename = `${timestamp}_${safeName}`;
+    const key = `uploads/${timestamp}_${safeName}`;
 
-    // === LOCAL STORAGE (Dev) ===
-    const uploadDir = path.join(process.cwd(), 'uploads');
-    await mkdir(uploadDir, { recursive: true });
-
+    // Upload to S3
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-    const filePath = path.join(uploadDir, filename);
-    await writeFile(filePath, buffer);
 
-    const fileUrl = `/uploads/${filename}`;
+    await s3.send(new PutObjectCommand({
+      Bucket: S3_BUCKET,
+      Key: key,
+      Body: buffer,
+      ContentType: file.type || 'application/octet-stream',
+    }));
+
+    const fileUrl = `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${key}`;
 
     return NextResponse.json({ 
       success: true, 
-      filename,
+      filename: safeName,
       url: fileUrl,
+      key,
       size: file.size,
     }, { status: 200 });
 

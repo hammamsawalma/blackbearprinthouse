@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -26,20 +26,22 @@ model Customer {
   orders    Order[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([email])
 }
 
 model Product {
   id               String      @id @default(cuid())
   nameAr           String
   nameEn           String
-  descriptionAr    String
-  descriptionEn    String
+  descriptionAr    String      @db.Text
+  descriptionEn    String      @db.Text
   price            Float
   category         String
   isCustomizable   Boolean     @default(false)
   hasSizeOptions   Boolean     @default(false)
   image            String?
-  
+
   // Eid Offers
   isEidOffer       Boolean     @default(false)
   offerPrice       Float?
@@ -48,6 +50,8 @@ model Product {
   orderItems       OrderItem[]
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
+
+  @@index([category])
 }
 
 model Order {
@@ -55,43 +59,47 @@ model Order {
   orderNumber     String      @unique
   customerId      String?
   customer        Customer?   @relation(fields: [customerId], references: [id])
-  
+
   // Contact details for the order if no customer account
   contactName     String
   contactEmail    String
   contactPhone    String
-  
+
   status          String      @default("PENDING") // PENDING, PROCESSING, COMPLETED, CANCELLED
-  
+
   // Financials
   subtotal        Float
   vatAmount       Float
   totalAmount     Float
-  
+
   // Delivery & Payment
-  deliveryAddress String
+  deliveryAddress String      @db.Text
   paymentMethod   String      @default("NOQOODY") // NOQOODY, COD, BANK_TRANSFER
   paymentStatus   String      @default("PENDING") // PENDING, PAID, FAILED
-  
+
   items           OrderItem[]
-  
+
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
+
+  @@index([status])
+  @@index([paymentStatus])
+  @@index([contactEmail])
 }
 
 model OrderItem {
   id             String   @id @default(cuid())
   orderId        String
   order          Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  
+
   productId      String
   product        Product  @relation(fields: [productId], references: [id])
-  
+
   quantity       Int
   unitPrice      Float
   subtotal       Float
-  
-  specifications String?  // JSON string containing selected size, paper type, etc.
+
+  specifications String?  @db.Text // JSON string containing selected size, paper type, etc.
 }
 
 model QuoteRequest {
@@ -100,13 +108,19 @@ model QuoteRequest {
   email       String
   phone       String
   company     String?
-  
+
   serviceType String
-  description String
+  description String   @db.Text
   quantity    String?
-  
+  attachments String?  @db.Text // JSON array of S3 file URLs
+
   status      String   @default("PENDING") // PENDING, REVIEWED, QUOTED, REJECTED
-  
+  adminNotes  String?  @db.Text
+  quotedPrice Float?
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([status])
+  @@index([email])
 }
