@@ -61,9 +61,9 @@
                 - generic [ref=e75]:
                   - paragraph [ref=e76]:
                     - text: Call Stack
-                    - generic [ref=e77]: "18"
-                  - button "Show 17 ignore-listed frame(s)" [ref=e78] [cursor=pointer]:
-                    - text: Show 17 ignore-listed frame(s)
+                    - generic [ref=e77]: "20"
+                  - button "Show 18 ignore-listed frame(s)" [ref=e78] [cursor=pointer]:
+                    - text: Show 18 ignore-listed frame(s)
                     - img [ref=e79]
                 - generic [ref=e81]:
                   - generic [ref=e82]:
@@ -71,29 +71,35 @@
                     - button "Open EidOffersHero in editor" [ref=e83] [cursor=pointer]:
                       - img [ref=e84]
                   - text: src/components/EidOffersHero.tsx (124:48)
-          - generic [ref=e86]: "1"
-          - generic [ref=e87]: "2"
-        - contentinfo [ref=e88]:
-          - region "Error feedback" [ref=e89]:
-            - paragraph [ref=e90]:
-              - link "Was this helpful?" [ref=e91] [cursor=pointer]:
+                - generic [ref=e86]:
+                  - generic [ref=e87]:
+                    - text: HomePage
+                    - button "Open HomePage in editor" [ref=e88] [cursor=pointer]:
+                      - img [ref=e89]
+                  - text: src/app/(site)/[locale]/page.tsx (55:7)
+          - generic [ref=e91]: "1"
+          - generic [ref=e92]: "2"
+        - contentinfo [ref=e93]:
+          - region "Error feedback" [ref=e94]:
+            - paragraph [ref=e95]:
+              - link "Was this helpful?" [ref=e96] [cursor=pointer]:
                 - /url: https://nextjs.org/telemetry#error-feedback
-            - button "Mark as helpful" [ref=e92] [cursor=pointer]:
-              - img [ref=e93]
-            - button "Mark as not helpful" [ref=e96] [cursor=pointer]:
-              - img [ref=e97]
-    - generic [ref=e103] [cursor=pointer]:
-      - button "Open Next.js Dev Tools" [ref=e104]:
-        - img [ref=e105]
-      - generic [ref=e108]:
-        - button "Open issues overlay" [ref=e109]:
-          - generic [ref=e110]:
-            - generic [ref=e111]: "1"
-            - generic [ref=e112]: "2"
-          - generic [ref=e113]:
+            - button "Mark as helpful" [ref=e97] [cursor=pointer]:
+              - img [ref=e98]
+            - button "Mark as not helpful" [ref=e101] [cursor=pointer]:
+              - img [ref=e102]
+    - generic [ref=e108] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e109]:
+        - img [ref=e110]
+      - generic [ref=e113]:
+        - button "Open issues overlay" [ref=e114]:
+          - generic [ref=e115]:
+            - generic [ref=e116]: "1"
+            - generic [ref=e117]: "2"
+          - generic [ref=e118]:
             - text: Issue
-            - generic [ref=e114]: s
-        - button "Collapse issues badge" [ref=e115]:
-          - img [ref=e116]
-  - 'heading "Application error: a client-side exception has occurred while loading localhost (see the browser console for more information)." [level=2] [ref=e120]'
+            - generic [ref=e119]: s
+        - button "Collapse issues badge" [ref=e120]:
+          - img [ref=e121]
+  - 'heading "Application error: a client-side exception has occurred while loading localhost (see the browser console for more information)." [level=2] [ref=e125]'
 ```

@@ -11,8 +11,8 @@
               - img "previous" [ref=e9]
             - generic [ref=e11]:
               - generic [ref=e12]: 1/
-              - text: "1"
-            - button "next" [disabled] [ref=e13]:
+              - text: "2"
+            - button "next" [ref=e13] [cursor=pointer]:
               - img "next" [ref=e14]
           - img
         - generic [ref=e16]:
@@ -22,46 +22,78 @@
             - generic [ref=e21]: Turbopack
           - img
       - generic [ref=e22]:
-        - dialog "Runtime Error" [ref=e23]:
-          - generic [ref=e27]:
-            - generic [ref=e28]:
-              - generic [ref=e30]: Runtime Error
-              - generic [ref=e31]:
-                - button "Copy Error Info" [ref=e32] [cursor=pointer]:
-                  - img [ref=e33]
-                - link "Go to related documentation" [ref=e35] [cursor=pointer]:
-                  - /url: https://nextjs.org/docs/messages/missing-root-layout-tags
-                  - img [ref=e36]
-                - button "Attach Node.js inspector" [ref=e38] [cursor=pointer]:
-                  - img [ref=e39]
-            - generic [ref=e48]:
-              - text: Missing <html> and <body> tags in the root layout. Read more at
-              - link "https://nextjs.org/docs/messages/missing-root-layout-tags" [ref=e49] [cursor=pointer]:
-                - /url: https://nextjs.org/docs/messages/missing-root-layout-tags
-          - generic [ref=e50]: "1"
-          - generic [ref=e51]: "2"
-        - contentinfo [ref=e52]:
-          - region "Error feedback" [ref=e53]:
-            - paragraph [ref=e54]:
-              - link "Was this helpful?" [ref=e55] [cursor=pointer]:
+        - dialog "Console Error" [ref=e23]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic [ref=e28]:
+                - generic [ref=e30]: Console Error
+                - generic [ref=e31]:
+                  - button "Copy Error Info" [ref=e32] [cursor=pointer]:
+                    - img [ref=e33]
+                  - link "Go to related documentation" [ref=e35] [cursor=pointer]:
+                    - /url: https://react.dev/link/rules-of-hooks
+                    - img [ref=e36]
+                  - button "Attach Node.js inspector" [ref=e38] [cursor=pointer]:
+                    - img [ref=e39]
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - text: "React has detected a change in the order of Hooks called by EidOffersHero. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks:"
+                  - link "https://react.dev/link/rules-of-hooks" [ref=e49] [cursor=pointer]:
+                    - /url: https://react.dev/link/rules-of-hooks
+                  - text: Previous render Next render ------------------------------------------------------ 1. useContext useContext 2. useContext useContext 3. useMemo useMemo 4. useContext useContext 5. useState useState 6. useState useState 7. useState useState 8. useState useState 9. useEffect useEffect 10. useEffect useEffect 11. undefined useState ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                - button "Show More" [ref=e51] [cursor=pointer]
+            - generic [ref=e52]:
+              - generic [ref=e53]:
+                - paragraph [ref=e55]:
+                  - img [ref=e57]
+                  - generic [ref=e60]: src/components/EidOffersHero.tsx (124:48) @ EidOffersHero
+                  - button "Open in editor" [ref=e61] [cursor=pointer]:
+                    - img [ref=e63]
+                - generic [ref=e66]:
+                  - generic [ref=e67]: 122 |
+                  - generic [ref=e68]: 123 | // 1 is next, -1 is prev
+                  - generic [ref=e69]: "> 124 | const [[page, direction], setPage] = useState([0, 0]);"
+                  - generic [ref=e70]: "| ^"
+                  - generic [ref=e71]: 125 |
+                  - generic [ref=e72]: 126 | // Sync page state when index changes (either from auto-advance or buttons)
+                  - generic [ref=e73]: "127 | useEffect(() => {"
+              - generic [ref=e74]:
+                - generic [ref=e75]:
+                  - paragraph [ref=e76]:
+                    - text: Call Stack
+                    - generic [ref=e77]: "18"
+                  - button "Show 17 ignore-listed frame(s)" [ref=e78] [cursor=pointer]:
+                    - text: Show 17 ignore-listed frame(s)
+                    - img [ref=e79]
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - text: EidOffersHero
+                    - button "Open EidOffersHero in editor" [ref=e83] [cursor=pointer]:
+                      - img [ref=e84]
+                  - text: src/components/EidOffersHero.tsx (124:48)
+          - generic [ref=e86]: "1"
+          - generic [ref=e87]: "2"
+        - contentinfo [ref=e88]:
+          - region "Error feedback" [ref=e89]:
+            - paragraph [ref=e90]:
+              - link "Was this helpful?" [ref=e91] [cursor=pointer]:
                 - /url: https://nextjs.org/telemetry#error-feedback
-            - button "Mark as helpful" [ref=e56] [cursor=pointer]:
-              - img [ref=e57]
-            - button "Mark as not helpful" [ref=e60] [cursor=pointer]:
-              - img [ref=e61]
-    - generic [ref=e67] [cursor=pointer]:
-      - button "Open Next.js Dev Tools" [ref=e68]:
-        - img [ref=e69]
-      - generic [ref=e72]:
-        - button "Open issues overlay" [ref=e73]:
-          - generic [ref=e74]:
-            - generic [ref=e75]: "0"
-            - generic [ref=e76]: "1"
-          - generic [ref=e77]: Issue
-        - button "Collapse issues badge" [ref=e78]:
-          - img [ref=e79]
-  - generic [ref=e82]:
-    - heading "404" [level=1] [ref=e83]
-    - heading "This page could not be found." [level=2] [ref=e85]
-  - alert [ref=e86]
+            - button "Mark as helpful" [ref=e92] [cursor=pointer]:
+              - img [ref=e93]
+            - button "Mark as not helpful" [ref=e96] [cursor=pointer]:
+              - img [ref=e97]
+    - generic [ref=e103] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e104]:
+        - img [ref=e105]
+      - generic [ref=e108]:
+        - button "Open issues overlay" [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: "1"
+            - generic [ref=e112]: "2"
+          - generic [ref=e113]:
+            - text: Issue
+            - generic [ref=e114]: s
+        - button "Collapse issues badge" [ref=e115]:
+          - img [ref=e116]
+  - 'heading "Application error: a client-side exception has occurred while loading localhost (see the browser console for more information)." [level=2] [ref=e120]'
 ```

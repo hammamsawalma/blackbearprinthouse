@@ -156,7 +156,7 @@ export default function EidOffersHero() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ type: "spring", stiffness: 300, damping: 30, duration: 0.5 }}
+            transition={{ type: "spring", stiffness: 150, damping: 20, duration: 0.8 }}
           >
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -227,38 +227,45 @@ export default function EidOffersHero() {
           
           <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
-              key={`img-${currentOffer.id}`}
-              className={styles.imageWrapper}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ type: "spring", stiffness: 200, damping: 25 }}
-            >
-              {/* Floating animation for the image itself */}
-              <motion.div
-                animate={{ 
-                  y: [0, -15, 0],
-                  rotateZ: [0, 2, 0]
-                }}
-                transition={{ 
-                  duration: 6, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-                style={{ width: '100%', height: '100%', position: 'relative' }}
+                key={`img-${currentOffer.id}`}
+                className={styles.imageWrapper}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ type: "spring", stiffness: 150, damping: 20, duration: 0.8 }}
               >
-                <Image
-                  src={imageUrl}
-                  alt={name || 'Eid special offer'}
-                  fill
-                  sizes="(max-width: 1024px) 90vw, 50vw"
-                  className={styles.productImage}
-                  priority={currentIndex === 0}
-                />
+                {/* Majestic Floating animation */}
+                <motion.div
+                  animate={{ 
+                    y: [0, -15, 0],
+                    rotateZ: [0, 1, 0]
+                  }}
+                  transition={{ 
+                    duration: 10, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  style={{ width: '100%', height: '100%', position: 'relative', perspective: '1000px' }}
+                >
+                  {/* Whimsical 3D Tilt on Hover */}
+                  <motion.div
+                    whileHover={{ scale: 1.05, rotateX: 5, rotateY: isRtl ? 10 : -10, z: 20 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    style={{ width: '100%', height: '100%', position: 'relative', transformStyle: 'preserve-3d' }}
+                  >
+                    <Image
+                      src={imageUrl}
+                      alt={name || 'Eid special offer'}
+                      fill
+                      sizes="(max-width: 1024px) 90vw, 50vw"
+                      className={styles.productImage}
+                      priority={currentIndex === 0}
+                    />
+                  </motion.div>
+                </motion.div>
               </motion.div>
-            </motion.div>
           </AnimatePresence>
         </div>
       </div>

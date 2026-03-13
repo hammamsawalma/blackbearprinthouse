@@ -1,240 +1,99 @@
 # Page snapshot
 
 ```yaml
-- generic [active] [ref=e1]:
-  - generic [ref=e6] [cursor=pointer]:
-    - button "Open Next.js Dev Tools" [ref=e7]:
-      - img [ref=e8]
-    - generic [ref=e11]:
-      - button "Open issues overlay" [ref=e12]:
-        - generic [ref=e13]:
-          - generic [ref=e14]: "0"
-          - generic [ref=e15]: "1"
-        - generic [ref=e16]: Issue
-      - button "Collapse issues badge" [ref=e17]:
-        - img [ref=e18]
-  - banner [ref=e20]:
-    - generic [ref=e21]:
-      - link "BlackBear PRINT HOUSE" [ref=e22] [cursor=pointer]:
-        - /url: /en
-        - img [ref=e24]
-        - generic [ref=e27]:
-          - generic [ref=e28]: BlackBear
-          - generic [ref=e29]: PRINT HOUSE
-      - navigation [ref=e30]:
-        - link "Home" [ref=e31] [cursor=pointer]:
-          - /url: /en
-        - link "About Us" [ref=e32] [cursor=pointer]:
-          - /url: /en/about
-        - link "Services" [ref=e33] [cursor=pointer]:
-          - /url: /en/services
-        - link "Portfolio" [ref=e34] [cursor=pointer]:
-          - /url: /en/portfolio
-        - link "Shop" [ref=e35] [cursor=pointer]:
-          - /url: /en/shop
-        - link "Contact Us" [ref=e36] [cursor=pointer]:
-          - /url: /en/contact
-      - generic [ref=e37]:
-        - button "العربية" [ref=e38] [cursor=pointer]
-        - link "Get a Quote" [ref=e39] [cursor=pointer]:
-          - /url: /en/quote
-    - generic:
-      - link "Home":
-        - /url: /en
-      - link "About Us":
-        - /url: /en/about
-      - link "Services":
-        - /url: /en/services
-      - link "Portfolio":
-        - /url: /en/portfolio
-      - link "Shop":
-        - /url: /en/shop
-      - link "Contact Us":
-        - /url: /en/contact
-      - link "Get a Quote":
-        - /url: /en/quote
-      - button "العربية"
-  - main [ref=e40]:
-    - region "Loading Eid Offers" [ref=e41]:
-      - img [ref=e42]
-    - generic [ref=e44]:
-      - generic [ref=e46]:
-        - generic [ref=e47]: Our Services
-        - heading "Complete Printing Solutions" [level=2] [ref=e48]
-        - separator [ref=e49]
-        - paragraph [ref=e50]: We offer a full range of printing and design services to meet all your needs
-      - generic [ref=e51]:
-        - link "Offset Printing High-quality printing for large quantities" [ref=e53] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e55]
-          - heading "Offset Printing" [level=3] [ref=e59]
-          - paragraph [ref=e60]: High-quality printing for large quantities
-        - link "Digital Printing Fast and flexible printing for small runs" [ref=e62] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e64]
-          - heading "Digital Printing" [level=3] [ref=e66]
-          - paragraph [ref=e67]: Fast and flexible printing for small runs
-        - link "Packaging Custom boxes and professional packaging" [ref=e69] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e71]
-          - heading "Packaging" [level=3] [ref=e75]
-          - paragraph [ref=e76]: Custom boxes and professional packaging
-        - link "Graphic Design Brand identity and marketing materials" [ref=e78] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e80]
-          - heading "Graphic Design" [level=3] [ref=e85]
-          - paragraph [ref=e86]: Brand identity and marketing materials
-        - link "Business Cards Elegant business cards that make an impression" [ref=e88] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e90]
-          - heading "Business Cards" [level=3] [ref=e92]
-          - paragraph [ref=e93]: Elegant business cards that make an impression
-        - link "Signage Indoor and outdoor signage with latest technology" [ref=e95] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e97]
-          - heading "Signage" [level=3] [ref=e101]
-          - paragraph [ref=e102]: Indoor and outdoor signage with latest technology
-        - link "Brochures Brochures and flyers with attractive designs" [ref=e104] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e106]
-          - heading "Brochures" [level=3] [ref=e110]
-          - paragraph [ref=e111]: Brochures and flyers with attractive designs
-        - link "Invitations Wedding cards and invitations for all occasions" [ref=e113] [cursor=pointer]:
-          - /url: /en/services
-          - img [ref=e115]
-          - heading "Invitations" [level=3] [ref=e118]
-          - paragraph [ref=e119]: Wedding cards and invitations for all occasions
-    - generic [ref=e120]:
-      - generic [ref=e122]:
-        - generic [ref=e123]: Why BlackBear?
-        - heading "Your Ideal Printing Partner" [level=2] [ref=e124]
-        - separator [ref=e125]
-      - generic [ref=e126]:
-        - generic [ref=e127]:
-          - img [ref=e129]
-          - heading "High Quality" [level=3] [ref=e132]
-          - paragraph [ref=e133]: We use the latest technology and finest materials to ensure stunning results
-        - generic [ref=e134]:
-          - img [ref=e136]
-          - heading "Fast Execution" [level=3] [ref=e138]
-          - paragraph [ref=e139]: We commit to deadlines and deliver your orders on time
-        - generic [ref=e140]:
-          - img [ref=e142]
-          - heading "Modern Technology" [level=3] [ref=e145]
-          - paragraph [ref=e146]: Advanced printing equipment for the best possible quality
-        - generic [ref=e147]:
-          - img [ref=e149]
-          - heading "Extensive Experience" [level=3] [ref=e154]
-          - paragraph [ref=e155]: An experienced team providing creative solutions for every project
-    - generic [ref=e157]:
-      - generic [ref=e158]:
-        - generic [ref=e159]: 10+
-        - generic [ref=e160]: Years of Experience
-      - generic [ref=e161]:
-        - generic [ref=e162]: 5000+
-        - generic [ref=e163]: Projects Completed
-      - generic [ref=e164]:
-        - generic [ref=e165]: 500+
-        - generic [ref=e166]: Happy Clients
-      - generic [ref=e167]:
-        - generic [ref=e168]: 100+
-        - generic [ref=e169]: Products Available
-    - generic [ref=e171]:
-      - img "Design Grid Background" [ref=e172]
-      - generic [ref=e173]:
-        - heading "Ready to Start Your Project?" [level=2] [ref=e174]
-        - paragraph [ref=e175]: Contact us today and get a free quote
-        - link "Get a Quote Now" [ref=e177] [cursor=pointer]:
-          - /url: /en/quote
-  - contentinfo [ref=e178]:
-    - generic [ref=e179]:
-      - generic [ref=e180]:
-        - generic [ref=e181]:
-          - link "BlackBear PRINT HOUSE" [ref=e182] [cursor=pointer]:
-            - /url: /en
-            - img [ref=e184]
-            - generic [ref=e187]:
-              - generic [ref=e188]: BlackBear
-              - generic [ref=e189]: PRINT HOUSE
-          - paragraph [ref=e190]: BlackBear Print House — Your ideal partner in professional printing in Doha, Qatar
-          - generic [ref=e191]:
-            - link "Instagram" [ref=e192] [cursor=pointer]:
-              - /url: "#"
-              - img [ref=e193]
-            - link "Facebook" [ref=e196] [cursor=pointer]:
-              - /url: "#"
-              - img [ref=e197]
-            - link "Twitter" [ref=e199] [cursor=pointer]:
-              - /url: "#"
-              - img [ref=e200]
-        - generic [ref=e202]:
-          - heading "Quick Links" [level=4] [ref=e203]
-          - list [ref=e204]:
-            - listitem [ref=e205]:
-              - link "Home" [ref=e206] [cursor=pointer]:
-                - /url: /en
-            - listitem [ref=e207]:
-              - link "About Us" [ref=e208] [cursor=pointer]:
-                - /url: /en/about
-            - listitem [ref=e209]:
-              - link "Services" [ref=e210] [cursor=pointer]:
-                - /url: /en/services
-            - listitem [ref=e211]:
-              - link "Portfolio" [ref=e212] [cursor=pointer]:
-                - /url: /en/portfolio
-            - listitem [ref=e213]:
-              - link "Contact Us" [ref=e214] [cursor=pointer]:
-                - /url: /en/contact
-            - listitem [ref=e215]:
-              - link "Get a Quote" [ref=e216] [cursor=pointer]:
-                - /url: /en/quote
-        - generic [ref=e217]:
-          - heading "Our Services" [level=4] [ref=e218]
-          - list [ref=e219]:
-            - listitem [ref=e220]:
-              - link "Offset Printing" [ref=e221] [cursor=pointer]:
-                - /url: /en/services
-            - listitem [ref=e222]:
-              - link "Digital Printing" [ref=e223] [cursor=pointer]:
-                - /url: /en/services
-            - listitem [ref=e224]:
-              - link "Packaging" [ref=e225] [cursor=pointer]:
-                - /url: /en/services
-            - listitem [ref=e226]:
-              - link "Graphic Design" [ref=e227] [cursor=pointer]:
-                - /url: /en/services
-            - listitem [ref=e228]:
-              - link "Business Cards" [ref=e229] [cursor=pointer]:
-                - /url: /en/services
-            - listitem [ref=e230]:
-              - link "Signage" [ref=e231] [cursor=pointer]:
-                - /url: /en/services
-        - generic [ref=e232]:
-          - heading "Contact Us" [level=4] [ref=e233]
-          - generic [ref=e234]:
-            - img [ref=e235]
-            - generic [ref=e237]:
-              - generic [ref=e238]: Phone
-              - generic [ref=e239]: +974 XXXX XXXX
-          - generic [ref=e240]:
-            - img [ref=e241]
-            - generic [ref=e244]:
-              - generic [ref=e245]: Email
-              - generic [ref=e246]: info@blackbearprint.qa
-          - generic [ref=e247]:
-            - img [ref=e248]
-            - generic [ref=e251]:
-              - generic [ref=e252]: Address
-              - generic [ref=e253]: Doha, Qatar
-          - generic [ref=e254]:
-            - img [ref=e255]
-            - generic [ref=e258]:
-              - generic [ref=e259]: Working Hours
-              - generic [ref=e260]: "Sunday - Thursday: 8:00 AM - 5:00 PM"
-      - generic [ref=e261]:
-        - generic [ref=e262]:
-          - generic [ref=e263]: © 2026 BlackBear Print House.
-          - generic [ref=e264]: All Rights Reserved
-        - generic [ref=e265]: Follow Us
-  - alert [ref=e266]
+- generic [ref=e1]:
+  - generic [active]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - navigation [ref=e7]:
+            - button "previous" [disabled] [ref=e8]:
+              - img "previous" [ref=e9]
+            - generic [ref=e11]:
+              - generic [ref=e12]: 1/
+              - text: "2"
+            - button "next" [ref=e13] [cursor=pointer]:
+              - img "next" [ref=e14]
+          - img
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - img [ref=e18]
+            - generic "Latest available version is detected (16.1.6)." [ref=e20]: Next.js 16.1.6
+            - generic [ref=e21]: Turbopack
+          - img
+      - generic [ref=e22]:
+        - dialog "Console Error" [ref=e23]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic [ref=e28]:
+                - generic [ref=e30]: Console Error
+                - generic [ref=e31]:
+                  - button "Copy Error Info" [ref=e32] [cursor=pointer]:
+                    - img [ref=e33]
+                  - link "Go to related documentation" [ref=e35] [cursor=pointer]:
+                    - /url: https://react.dev/link/rules-of-hooks
+                    - img [ref=e36]
+                  - button "Attach Node.js inspector" [ref=e38] [cursor=pointer]:
+                    - img [ref=e39]
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - text: "React has detected a change in the order of Hooks called by EidOffersHero. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks:"
+                  - link "https://react.dev/link/rules-of-hooks" [ref=e49] [cursor=pointer]:
+                    - /url: https://react.dev/link/rules-of-hooks
+                  - text: Previous render Next render ------------------------------------------------------ 1. useContext useContext 2. useContext useContext 3. useMemo useMemo 4. useContext useContext 5. useState useState 6. useState useState 7. useState useState 8. useState useState 9. useEffect useEffect 10. useEffect useEffect 11. undefined useState ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                - button "Show More" [ref=e51] [cursor=pointer]
+            - generic [ref=e52]:
+              - generic [ref=e53]:
+                - paragraph [ref=e55]:
+                  - img [ref=e57]
+                  - generic [ref=e60]: src/components/EidOffersHero.tsx (124:48) @ EidOffersHero
+                  - button "Open in editor" [ref=e61] [cursor=pointer]:
+                    - img [ref=e63]
+                - generic [ref=e66]:
+                  - generic [ref=e67]: 122 |
+                  - generic [ref=e68]: 123 | // 1 is next, -1 is prev
+                  - generic [ref=e69]: "> 124 | const [[page, direction], setPage] = useState([0, 0]);"
+                  - generic [ref=e70]: "| ^"
+                  - generic [ref=e71]: 125 |
+                  - generic [ref=e72]: 126 | // Sync page state when index changes (either from auto-advance or buttons)
+                  - generic [ref=e73]: "127 | useEffect(() => {"
+              - generic [ref=e74]:
+                - generic [ref=e75]:
+                  - paragraph [ref=e76]:
+                    - text: Call Stack
+                    - generic [ref=e77]: "18"
+                  - button "Show 17 ignore-listed frame(s)" [ref=e78] [cursor=pointer]:
+                    - text: Show 17 ignore-listed frame(s)
+                    - img [ref=e79]
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - text: EidOffersHero
+                    - button "Open EidOffersHero in editor" [ref=e83] [cursor=pointer]:
+                      - img [ref=e84]
+                  - text: src/components/EidOffersHero.tsx (124:48)
+          - generic [ref=e86]: "1"
+          - generic [ref=e87]: "2"
+        - contentinfo [ref=e88]:
+          - region "Error feedback" [ref=e89]:
+            - paragraph [ref=e90]:
+              - link "Was this helpful?" [ref=e91] [cursor=pointer]:
+                - /url: https://nextjs.org/telemetry#error-feedback
+            - button "Mark as helpful" [ref=e92] [cursor=pointer]:
+              - img [ref=e93]
+            - button "Mark as not helpful" [ref=e96] [cursor=pointer]:
+              - img [ref=e97]
+    - generic [ref=e103] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e104]:
+        - img [ref=e105]
+      - generic [ref=e108]:
+        - button "Open issues overlay" [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: "1"
+            - generic [ref=e112]: "2"
+          - generic [ref=e113]:
+            - text: Issue
+            - generic [ref=e114]: s
+        - button "Collapse issues badge" [ref=e115]:
+          - img [ref=e116]
+  - 'heading "Application error: a client-side exception has occurred while loading localhost (see the browser console for more information)." [level=2] [ref=e120]'
 ```
