@@ -36,10 +36,10 @@ test.describe('E2E: Eid Offers Banner', () => {
     // Click "Next" button
     const nextBtn = banner.locator('button[aria-label="Next offer"]');
     await nextBtn.click();
-    await page.waitForTimeout(800); // Wait for animation
+    await page.waitForTimeout(1500); // Wait for majestic animation
 
     // Offer should have changed
-    const secondOfferName = await banner.locator('h3').first().textContent();
+    const secondOfferName = await banner.locator('h1').first().textContent();
     expect(secondOfferName).not.toBe(firstOfferName);
   });
 
@@ -90,7 +90,7 @@ test.describe('E2E: Eid Offers Banner', () => {
     const banner = page.locator('section').filter({ hasText: /Eid Offers/ });
     await expect(banner).toBeVisible({ timeout: 10000 });
 
-    const firstOfferName = await banner.locator('h3').first().textContent();
+    const firstOfferName = await banner.locator('h1').first().textContent();
 
     // Wait 6 seconds for auto-advance
     await page.waitForTimeout(6000);

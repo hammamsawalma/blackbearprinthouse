@@ -72,6 +72,24 @@ export default function EidOffersHero() {
     setCurrentIndex((prev) => (prev - 1 + offers.length) % offers.length);
   };
 
+  // 1 is next, -1 is prev
+  const [[page, direction], setPage] = useState([0, 0]);
+
+  // Sync page state when index changes (either from auto-advance or buttons)
+  useEffect(() => {
+    if (currentIndex !== page) {
+       // Estimate direction
+       const nextDirection = ((currentIndex > page && !(page === 0 && currentIndex === offers.length -1)) || (page === offers.length - 1 && currentIndex === 0)) ? 1 : -1;
+       setPage([currentIndex, nextDirection]);
+    }
+  }, [currentIndex, page, offers.length]);
+
+  const navigate = (newDirection: number) => {
+    const nextIndex = (currentIndex + newDirection + offers.length) % offers.length;
+    setPage([nextIndex, newDirection]);
+    setCurrentIndex(nextIndex);
+  };
+
   // If loading, show skeleton wrapper
   if (loading) {
     return (
@@ -118,25 +136,6 @@ export default function EidOffersHero() {
       opacity: 0,
       scale: 0.95
     })
-  };
-
-  // 1 is next, -1 is prev
-  const [[page, direction], setPage] = useState([0, 0]);
-  
-  // Sync page state when index changes (either from auto-advance or buttons)
-  useEffect(() => {
-    if (currentIndex !== page) {
-       // Estimate direction
-       const nextDirection = ((currentIndex > page && !(page === 0 && currentIndex === offers.length -1)) || (page === offers.length - 1 && currentIndex === 0)) ? 1 : -1;
-       setPage([currentIndex, nextDirection]);
-    }
-  }, [currentIndex, page, offers.length]);
-
-
-  const navigate = (newDirection: number) => {
-    const nextIndex = (currentIndex + newDirection + offers.length) % offers.length;
-    setPage([nextIndex, newDirection]);
-    setCurrentIndex(nextIndex);
   };
 
   return (
