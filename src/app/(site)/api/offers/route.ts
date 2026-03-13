@@ -16,8 +16,9 @@ export async function GET() {
     return NextResponse.json({ success: true, offers });
   } catch (error) {
     console.error('Error fetching offers:', error);
+    const errMsg = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { success: false, error: 'Failed to fetch offers' },
+      { success: false, error: 'Failed to fetch offers', debug: errMsg },
       { status: 500 }
     );
   }
