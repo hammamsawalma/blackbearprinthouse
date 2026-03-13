@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear Family Post</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .post {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 120%, #1a1a2e 0%, #0d0d0d 70%);
+  }
+
+  /* Subtle background pattern - spirals like the brand */
+  .post::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(circle at 15% 20%, rgba(0,200,255,0.03) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(212,175,55,0.04) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.01) 0%, transparent 60%);
+    z-index: 0;
+  }
+
+  /* Decorative connecting line */
+  .connection-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255,255,255,0.08) 20%, 
+      rgba(255,255,255,0.15) 50%, 
+      rgba(255,255,255,0.08) 80%, 
+      transparent 100%
+    );
+    z-index: 1;
+  }
+
+  /* Top headline */
+  .headline {
+    position: absolute;
+    top: 60px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .headline .sub {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .headline .main {
+    font-size: 52px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ffffff 0%, #d4af37 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.3;
+  }
+
+  /* Bear cards container */
+  .bears-container {
+    position: absolute;
+    top: 230px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 10;
+    padding: 0 60px;
+  }
+
+  /* Individual bear card */
+  .bear-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .bear-logo-wrapper {
+    width: 220px;
+    height: 220px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  /* Black Bear - The Father */
+  .bear-black .bear-logo-wrapper {
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    border: 2px solid rgba(255,255,255,0.12);
+    box-shadow: 
+      0 20px 60px rgba(0,0,0,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  .bear-black .bear-logo-wrapper svg {
+    width: 140px;
+    height: 140px;
+    filter: drop-shadow(0 2px 8px rgba(255,255,255,0.1));
+  }
+
+  /* Blue Bear - The Agency */
+  .bear-blue .bear-logo-wrapper {
+    background: linear-gradient(145deg, #0a3d5c, #0d5580);
+    border: 2px solid rgba(0,200,255,0.25);
+    box-shadow: 
+      0 20px 60px rgba(0,150,255,0.15),
+      inset 0 1px 0 rgba(0,200,255,0.1);
+  }
+
+  .bear-blue .bear-logo-wrapper img {
+    width: 160px;
+    height: auto;
+    filter: drop-shadow(0 2px 8px rgba(0,200,255,0.3));
+  }
+
+  /* Golden Bear - Print House */
+  .bear-gold .bear-logo-wrapper {
+    background: linear-gradient(145deg, #2a1f0a, #3d2c0f);
+    border: 2px solid rgba(212,175,55,0.3);
+    box-shadow: 
+      0 20px 60px rgba(212,175,55,0.12),
+      inset 0 1px 0 rgba(212,175,55,0.1);
+  }
+
+  .bear-gold .bear-logo-wrapper svg {
+    width: 140px;
+    height: 140px;
+    filter: drop-shadow(0 2px 8px rgba(212,175,55,0.4));
+  }
+
+  .bear-label {
+    text-align: center;
+  }
+
+  .bear-label .name {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .bear-black .bear-label .name {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .bear-blue .bear-label .name {
+    color: #00c8ff;
+  }
+
+  .bear-gold .bear-label .name {
+    color: #d4af37;
+  }
+
+  .bear-label .role {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+  }
+
+  .bear-label .brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  /* Arrows between bears */
+  .arrow-connector {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+
+  .arrow-left {
+    top: 340px;
+    left: 332px;
+    transform: rotate(0deg);
+  }
+
+  .arrow-right {
+    top: 340px;
+    right: 332px;
+    transform: rotate(0deg);
+  }
+
+  .arrow-connector svg {
+    width: 50px;
+    height: 20px;
+    opacity: 0.3;
+  }
+
+  /* Story section */
+  .story-section {
+    position: absolute;
+    bottom: 160px;
+    left: 80px;
+    right: 80px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .story-section .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin: 0 auto 20px;
+  }
+
+  .story-section .story-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .story-section .story-text .highlight-gold {
+    color: #d4af37;
+    font-weight: 800;
+  }
+
+  .story-section .story-text .highlight-blue {
+    color: #00c8ff;
+    font-weight: 800;
+  }
+
+  .story-section .story-text .highlight-white {
+    color: rgba(255,255,255,0.9);
+    font-weight: 800;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute;
+    bottom: 40px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .bottom-bar .hashtags {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 1px;
+  }
+
+  .bottom-bar .year {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(212,175,55,0.4);
+    letter-spacing: 3px;
+  }
+
+  /* NEW badge on golden bear */
+  .new-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #d4af37, #f0d060);
+    color: #1a1a1a;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+    z-index: 20;
+  }
+
+  /* Crown on the black bear */
+  .crown {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    z-index: 20;
+  }
+
+  /* Glow effects */
+  .bear-gold .bear-logo-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: -20px; right: -20px; bottom: -20px;
+    border-radius: 40px;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+    z-index: -1;
+  }
+
+  .bear-blue .bear-logo-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: -20px; right: -20px; bottom: -20px;
+    border-radius: 40px;
+    background: radial-gradient(circle, rgba(0,200,255,0.06) 0%, transparent 70%);
+    z-index: -1;
+  }
+
+  /* Sparkle decoration */
+  .sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #d4af37;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  .sparkle-1 { top: 180px; left: 120px; }
+  .sparkle-2 { top: 300px; right: 150px; }
+  .sparkle-3 { bottom: 280px; left: 200px; }
+  .sparkle-4 { top: 420px; right: 100px; opacity: 0.2; width: 3px; height: 3px; }
+  .sparkle-5 { bottom: 350px; right: 250px; opacity: 0.3; width: 5px; height: 5px; }
+</style>
+</head>
+<body>
+
+<div class="post">
+  <!-- Sparkles -->
+  <div class="sparkle sparkle-1"></div>
+  <div class="sparkle sparkle-2"></div>
+  <div class="sparkle sparkle-3"></div>
+  <div class="sparkle sparkle-4"></div>
+  <div class="sparkle sparkle-5"></div>
+
+  <!-- Headline -->
+  <div class="headline">
+    <div class="sub">THE FAMILY IS GROWING</div>
+    <div class="main">العائلة عم تكبر ✨</div>
+  </div>
+
+  <!-- Bears Container -->
+  <div class="bears-container">
+    
+    <!-- Golden Bear - NEW (Right in RTL) -->
+    <div class="bear-card bear-gold">
+      <div class="bear-logo-wrapper">
+        <div class="new-badge">NEW</div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-74 -83 129 129">
+          <g transform="matrix(1,0,0,-1,0,0)">
+            <path fill="#d4af37" d="M0 0C1.842-4.258-5.158-5.636-7.533-7.437-8.693-8.311-9.28-9.43-8.747-10.89-7.901-13.182-3.698-12.309-2.361-13.851-1.897-14.383-1.924-15.202-2.593-15.53-3.698-16.075-7.574-14.765-9.116-14.67-11.763-14.492-13.551-15.366-15.939-15.557-16.812-15.625-18.3-15.639-17.945-14.329-17.372-12.268-11.845-13.36-11.258-10.644-11.013-9.443-11.299-8.474-12.227-7.683-14.615-5.636-21.179-4.612-20.224-.423-19.541 2.593-13.933 3.098-11.49 3.193-8.461 3.316-1.406 3.275 0 0M21.07 61.299C15.693 59.621 11.913 52.839 11.272 52.648 10.685 52.484 1.938 56.278-.355 56.742-7.396 58.202-14.397 58.092-21.329 56.1-22.953 55.623-30.145 52.143-30.813 52.634-35.48 64.179-52.238 65.557-58.911 54.94-64.97 45.292-59.989 32.451-48.635 30.39L-49.891 22.789C-45.06 30.309-24.072 43.696-16.021 37.282-9.484 32.069-22.967 23.881-25.764 19.924-19.091 20.483-18.955 9.58-26.378 10.74-28.493 11.067-29.681 12.691-29.926 14.492-37.882 6.195-40.857-8.611-31.837-17.208-22.748-25.873-.901-27.716 8.815-19.705 23.103-7.915-4.558 6.236-3.985 16.034-3.602 22.448 3.043 22.435 7.751 21.07 16.116 18.641 24.441 10.863 29.149 3.753 33.311 11.859 31.823 21.943 29.463 30.39 51.419 35.18 42.972 68.164 21.07 61.299"/>
+          </g>
+        </svg>
+      </div>
+      <div class="bear-label">
+        <div class="name">الدبدوب الذهبي 💛</div>
+        <div class="brand">BlackBear Print House</div>
+        <div class="role">الفخامة المطبوعة</div>
+      </div>
+    </div>
+
+    <!-- Black Bear - Father (Center) -->
+    <div class="bear-card bear-black">
+      <div class="bear-logo-wrapper">
+        <div class="crown">👑</div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-74 -83 129 129">
+          <g transform="matrix(1,0,0,-1,0,0)">
+            <path fill="#ffffff" d="M0 0C1.842-4.258-5.158-5.636-7.533-7.437-8.693-8.311-9.28-9.43-8.747-10.89-7.901-13.182-3.698-12.309-2.361-13.851-1.897-14.383-1.924-15.202-2.593-15.53-3.698-16.075-7.574-14.765-9.116-14.67-11.763-14.492-13.551-15.366-15.939-15.557-16.812-15.625-18.3-15.639-17.945-14.329-17.372-12.268-11.845-13.36-11.258-10.644-11.013-9.443-11.299-8.474-12.227-7.683-14.615-5.636-21.179-4.612-20.224-.423-19.541 2.593-13.933 3.098-11.49 3.193-8.461 3.316-1.406 3.275 0 0M21.07 61.299C15.693 59.621 11.913 52.839 11.272 52.648 10.685 52.484 1.938 56.278-.355 56.742-7.396 58.202-14.397 58.092-21.329 56.1-22.953 55.623-30.145 52.143-30.813 52.634-35.48 64.179-52.238 65.557-58.911 54.94-64.97 45.292-59.989 32.451-48.635 30.39L-49.891 22.789C-45.06 30.309-24.072 43.696-16.021 37.282-9.484 32.069-22.967 23.881-25.764 19.924-19.091 20.483-18.955 9.58-26.378 10.74-28.493 11.067-29.681 12.691-29.926 14.492-37.882 6.195-40.857-8.611-31.837-17.208-22.748-25.873-.901-27.716 8.815-19.705 23.103-7.915-4.558 6.236-3.985 16.034-3.602 22.448 3.043 22.435 7.751 21.07 16.116 18.641 24.441 10.863 29.149 3.753 33.311 11.859 31.823 21.943 29.463 30.39 51.419 35.18 42.972 68.164 21.07 61.299"/>
+          </g>
+        </svg>
+      </div>
+      <div class="bear-label">
+        <div class="name">الأب الروحي 🖤</div>
+        <div class="brand">Black Bear</div>
+        <div class="role">الأساس والقوة</div>
+      </div>
+    </div>
+
+    <!-- Blue Bear (Left in RTL) -->
+    <div class="bear-card bear-blue">
+      <div class="bear-logo-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-74 -83 129 129" style="width:140px; height:140px;">
+          <g transform="matrix(1,0,0,-1,0,0)">
+            <path fill="#00c8ff" d="M0 0C1.842-4.258-5.158-5.636-7.533-7.437-8.693-8.311-9.28-9.43-8.747-10.89-7.901-13.182-3.698-12.309-2.361-13.851-1.897-14.383-1.924-15.202-2.593-15.53-3.698-16.075-7.574-14.765-9.116-14.67-11.763-14.492-13.551-15.366-15.939-15.557-16.812-15.625-18.3-15.639-17.945-14.329-17.372-12.268-11.845-13.36-11.258-10.644-11.013-9.443-11.299-8.474-12.227-7.683-14.615-5.636-21.179-4.612-20.224-.423-19.541 2.593-13.933 3.098-11.49 3.193-8.461 3.316-1.406 3.275 0 0M21.07 61.299C15.693 59.621 11.913 52.839 11.272 52.648 10.685 52.484 1.938 56.278-.355 56.742-7.396 58.202-14.397 58.092-21.329 56.1-22.953 55.623-30.145 52.143-30.813 52.634-35.48 64.179-52.238 65.557-58.911 54.94-64.97 45.292-59.989 32.451-48.635 30.39L-49.891 22.789C-45.06 30.309-24.072 43.696-16.021 37.282-9.484 32.069-22.967 23.881-25.764 19.924-19.091 20.483-18.955 9.58-26.378 10.74-28.493 11.067-29.681 12.691-29.926 14.492-37.882 6.195-40.857-8.611-31.837-17.208-22.748-25.873-.901-27.716 8.815-19.705 23.103-7.915-4.558 6.236-3.985 16.034-3.602 22.448 3.043 22.435 7.751 21.07 16.116 18.641 24.441 10.863 29.149 3.753 33.311 11.859 31.823 21.943 29.463 30.39 51.419 35.18 42.972 68.164 21.07 61.299"/>
+          </g>
+        </svg>
+      </div>
+      <div class="bear-label">
+        <div class="name">الدبدوب الأزرق 💙</div>
+        <div class="brand">BlackBear Agency</div>
+        <div class="role">الابتكار الرقمي</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Arrow connectors -->
+  <div class="arrow-connector arrow-left">
+    <svg viewBox="0 0 50 20" fill="none">
+      <line x1="0" y1="10" x2="45" y2="10" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+      <polygon points="45,5 50,10 45,15" fill="rgba(255,255,255,0.2)"/>
+    </svg>
+  </div>
+  <div class="arrow-connector arrow-right">
+    <svg viewBox="0 0 50 20" fill="none">
+      <line x1="5" y1="10" x2="50" y2="10" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+      <polygon points="5,5 0,10 5,15" fill="rgba(255,255,255,0.2)"/>
+    </svg>
+  </div>
+
+  <!-- Story Section -->
+  <div class="story-section">
+    <div class="divider"></div>
+    <div class="story-text">
+      من جذور <span class="highlight-white">الأب الروحي</span> الصلبة،
+      خرج <span class="highlight-blue">الابتكار الرقمي</span> للعالم..
+      واليوم تُتوَّج العائلة بـ<span class="highlight-gold">لمسة الفخامة الذهبية</span> ✨
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <div class="hashtags">#BlackBearFamily #عائلة_بلاك_بير</div>
+    <div class="year">— 2026 —</div>
+  </div>
+</div>
+
+</body>
+</html>
