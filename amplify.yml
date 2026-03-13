@@ -6,6 +6,7 @@ frontend:
       commands:
         - npm ci
         - npx prisma generate
+        - env | grep -E '^(DATABASE_URL|AUTH_SECRET|S3_UPLOAD_BUCKET|S3_REGION|NEXT_PUBLIC_BASE_URL)=' > .env.production
     build:
       commands:
         - npm run build
